@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .block {
+            height: 50px;
+            width: 50px;
+            margin: 5px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        .blocks-wall {
+            display: grid;
+            grid-template-columns: repeat(4, 70px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- html code goes here -->
+    <input title="wall_color" id="wall_id" type="number" />
+    <input title="wall_id" id="wall_color" type="text" />
+    <button id="apply-btn">Apply</button>
+    <button id="reset-btn">Reset All</button>
+    <section class="blocks-wall">
+        <div id="1" class="block" value="1">1</div>
+        <div id="2" class="block" value="2">2</div>
+        <div id="3" class="block" value="3">3</div>
+        <div id="4" class="block" value="4">4</div>
+        <div id="5" class="block" value="5">5</div>
+        <div id="6" class="block" value="6">6</div>
+        <div id="7" class="block" value="7">7</div>
+        <div id="8" class="block" value="8">8</div>
+        <div id="9" class="block" value="9">9</div>
+        <div id="10" class="block" value="10">10</div>
+    </section>
+</body>
+
+</html>
+<script>
+    document.getElementById('apply-btn').addEventListener('click', () => {
+        const wallId = document.getElementById('wall_id').value
+        const wallColor = document.getElementById('wall_color').value
+        if (wallId >= 1 && wallId <= 10) {
+            const selectWall = document.getElementById(wallId)
+            selectWall.style.backgroundColor = wallColor;
+        } else {
+            alert('Fuck you')
+        }
+    })
+    document.getElementById('reset-btn').addEventListener('click', () => {
+        document.querySelectorAll('.block').forEach(block => {
+            block.style.backgroundColor = 'transparent'
+            console.log(block);
+        });
+
+
+    });
+
+</script>
